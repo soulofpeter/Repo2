@@ -1,1 +1,3 @@
-FROM haproxy:1.7
+FROM scratch
+COPY hello /
+CMD ["/hello"]
