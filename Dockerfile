@@ -1,8 +1,2 @@
-FROM rust:1.31
-
-WORKDIR /usr/src/myapp
-COPY . .
-
-RUN cargo install --path .
-
-CMD ["myapp"]
+FROM haproxy:1.7
+COPY haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
