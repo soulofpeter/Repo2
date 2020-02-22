@@ -1,3 +1,7 @@
-FROM scratch
-COPY hello /
-CMD ["/hello"]
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+   return 'Hello, World!'
+   
