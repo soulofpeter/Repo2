@@ -1,10 +1,8 @@
-FROM scratch
-ADD centos-7.7-x86_64-docker.tar.xz /
+FROM rust:1.31
 
-LABEL org.label-schema.schema-version="1.0" \
-    org.label-schema.name="CentOS Base Image" \
-    org.label-schema.vendor="CentOS" \
-    org.label-schema.license="GPLv2" \
-    org.label-schema.build-date="20191024"
+WORKDIR /usr/src/myapp
+COPY . .
 
-CMD ["/bin/bash"]
+RUN cargo install --path .
+
+CMD ["myapp"]
